@@ -42,7 +42,7 @@ class FilepickerFile(File):
         result = list()
         for url in self.url.split(","):
             # Append the fields as GET query parameters to the URL in data.
-            r = requests.get(url, params=query_params, stream=True)
+            r = requests.get(url, params=query_params)
             header = r.headers
             disposition = header.get('Content-Disposition')
             if disposition:
