@@ -1,7 +1,9 @@
-import re
 import os
+import re
 import requests
 import tempfile
+import uuid
+
 from django.core.files import File
 
 
@@ -45,6 +47,8 @@ class FilepickerFile(File):
             r = requests.get(url, params=query_params)
             header = r.headers
             disposition = header.get('Content-Disposition')
+            name = str(uuid.uuid4())
+
             if disposition:
                 name = disposition.rpartition("filename=")[2].strip('" ')
             filename = header.get('X-File-Name')
