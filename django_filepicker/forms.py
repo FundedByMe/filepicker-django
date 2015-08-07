@@ -48,10 +48,10 @@ class FPFieldMixin():
                 }
 
         if self.services:
-            attrs['data-fp-option-services'] = self.services
+            attrs['data-fp-services'] = self.services
 
         if self.additional_params:
-            attrs = dict(list(attrs.items()) + list(self.additional_params.items()))            
+            attrs = dict(list(attrs.items()) + list(self.additional_params.items()))
 
         return attrs
 
